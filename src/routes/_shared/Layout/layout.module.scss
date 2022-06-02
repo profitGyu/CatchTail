@@ -1,0 +1,18 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.layout {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  background: colors.$PRIMARY;
+
+  .main {
+    height: 100vh;
+    background-color: snow;
+  }
+
+  @include responsive.after(ML) {
+    max-width: 375px;
+  }
+}
