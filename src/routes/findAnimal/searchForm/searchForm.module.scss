@@ -1,0 +1,84 @@
+@use '/src/styles/constants/colors';
+
+.searchFrom {
+  position: relative;
+  padding: 10px;
+  background-color: snow;
+  border-radius: 5px;
+
+  .menu {
+    display: none;
+  }
+
+  .inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 260px;
+    height: 40px;
+    padding: 0 20px;
+    background: colors.$INPUT_BG;
+    border-radius: 5px;
+    margin-bottom: 20px;
+
+    input {
+      width: 280px;
+      height: 40px;
+      color: colors.$BACKGROUND;
+      text-align: center;
+    }
+  }
+
+  .arrowIcon {
+    width: 32px;
+    color: colors.$TEXT_WHITE;
+    cursor: pointer;
+  }
+
+  .arrowIconOpen {
+    width: 32px;
+    color: colors.$TEXT_WHITE;
+    cursor: pointer;
+    transform: rotate(-180deg);
+  }
+
+  .menuActive {
+    position: absolute;
+    display: block;
+    width: 260px;
+    background: colors.$BACKGROUND;
+
+    li {
+      align-items: center;
+      height: 40px;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    li:hover {
+      background: colors.$INPUT_BG;
+      opacity: 1.2;
+
+      button {
+        color: colors.$TEXT_WHITE;
+      }
+    }
+  }
+
+  .choise {
+    display: flex;
+
+    button {
+      font-size: 32px;
+    }
+
+    button:hover {
+      font-size: 40px;
+    }
+
+    .animalButton {
+      font-size: 46px;
+    }
+  }
+}

@@ -3,13 +3,18 @@
 
 .layout {
   position: relative;
+  display: flex;
+  flex-direction: column;
   width: 100%;
+  height: 100vh;
   margin: 0 auto;
+  overflow: hidden;
   background: colors.$PRIMARY;
 
   .main {
-    height: 100vh;
-    background-color: snow;
+    height: calc(100vh - 100px);
+    padding: 10px;
+    background-color: #fefefe;
   }
 
   @include responsive.after(ML) {
