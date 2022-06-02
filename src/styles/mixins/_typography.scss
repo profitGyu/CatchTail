@@ -3,7 +3,7 @@
   display: -webkit-box;
   height: #{$lineHeight * $line}px;
   overflow: hidden;
-  word-break: break-all;
+  word-break: keep-all;
   -webkit-line-clamp: $line;
-  -webkit-box-orient: vertical;
+  // -webkit-box-orient: vertical;
 }
