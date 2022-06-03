@@ -1,4 +1,3 @@
-import SearchForm from './searchForm'
 import SearchResult from './searchResult'
 
 const FindAnimal = () => {

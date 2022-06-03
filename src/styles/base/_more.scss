@@ -9,7 +9,7 @@
   -webkit-tap-highlight-color: transparent;
   -webkit-touch-callout: none;
   -ms-overflow-style: none; // IE and Edge
-  scrollbar-width: none; // Firefox
+  // scrollbar-width: none; // Firefox
 
   &::before,
   &::after {
@@ -17,8 +17,24 @@
   }
 
   &::-webkit-scrollbar {
-    display: none; // Chrome
+    display: none;
   }
+  // &::-webkit-scrollbar {
+  //   width: 8px;
+  // }
+
+  // &::-webkit-scrollbar-thumb {
+  //   background-color: #676767;
+  //   background-clip: padding-box;
+  //   border: 2px solid transparent;
+  //   border-radius: 8px;
+  // }
+
+  // &::-webkit-scrollbar-track {
+  //   background-color: #9e9e9e;
+  //   border-radius: 8px;
+  //   box-shadow: inset 0 0 5px white;
+  // }
 }
 
 body {

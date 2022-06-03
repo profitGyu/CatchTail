@@ -13,7 +13,6 @@ const GNB = () => {
             <li key={item.id}>
               <NavLink to={item.path} className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
                 {item.title}
-                <div className={styles.sideLine} />
               </NavLink>
             </li>
           )

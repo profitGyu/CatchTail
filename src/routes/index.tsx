@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router-dom'
 import styles from './routes.module.scss'
+import FindLayout from './_shared/Layout/findLayout'
 import Layout from './_shared/Layout'
 import FindAnimal from './findAnimal'
 import ProtectAnimal from './protectAnimal'
@@ -9,8 +10,10 @@ const App = () => {
   return (
     <div className={styles.app}>
       <Routes>
-        <Route element={<Layout />}>
+        <Route element={<FindLayout />}>
           <Route path='/' element={<FindAnimal />} />
+        </Route>
+        <Route element={<Layout />}>
           <Route path='/protect' element={<ProtectAnimal />} />
           <Route path='/bookmark' element={<FavoriteAnimal />} />
         </Route>

@@ -4,16 +4,7 @@
 .resultContainer {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  height: calc(100vh - 300px);
+  height: calc(100vh);
   overflow-y: scroll;
   background: colors.$BACKGROUNDTWO_GRADIENT;
-
-  @include responsive.after(SD) {
-    height: calc(100vh);
-  }
-
-  div {
-    display: flex;
-  }
 }

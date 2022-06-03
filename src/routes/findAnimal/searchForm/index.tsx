@@ -1,5 +1,5 @@
 import styles from './searchForm.module.scss'
-import { ArrowIcon } from 'assets/svgs'
+import { ArrowIcon, Waves } from 'assets/svgs'
 import { FormEvent, MouseEvent, useState } from 'react'
 import { cx } from 'styles'
 

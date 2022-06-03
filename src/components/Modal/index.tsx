@@ -1,9 +1,13 @@
-import { useRef } from 'react'
+import { useMemo, useRef } from 'react'
 import { useClickAway } from 'react-use'
 import styles from './modal.module.scss'
 
 import Button from 'components/Button'
 import { Item } from 'types'
+import { useRecoilState } from 'recoil'
+import { bookMarkListState } from 'states'
+import _ from 'lodash'
+import store from 'storejs'
 
 interface Props {
   setIsOpenPopup: Function
@@ -12,6 +16,7 @@ interface Props {
 
 const Modal = ({ setIsOpenPopup, info }: Props) => {
   const outsideRef = useRef<HTMLInputElement>(null)
+  const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
 
   const handleCloseButtonClick = () => {
     setIsOpenPopup(false)
@@ -21,6 +26,23 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
     setIsOpenPopup(false)
   })
 
+  const onClickBookmarkAddHandle = () => {
+    setBookmarkList((pre) => {
+      return pre.concat(info)
+    })
+    store.set('BookmarkList', BookmarkList.concat(info))
+  }
+
+  const onClickBookMarkRemoveHandle = () => {
+    const newFavorites = BookmarkList.filter((item) => item.desertionNo !== info.desertionNo)
+    setBookmarkList(newFavorites)
+    store.remove('BookmarkList')
+    store.set('BookmarkList', newFavorites)
+  }
+
+  const isBookMark = useMemo(() => {
+    return _.findIndex(BookmarkList, { desertionNo: info.desertionNo }) !== -1
+  }, [BookmarkList, info.desertionNo])
   return (
     <div className={styles.modal}>
       <div className={styles.modalContainer} ref={outsideRef}>
@@ -91,7 +113,15 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          <Button size='large'>친구 목록에 담기 </Button>
+          {isBookMark ? (
+            <Button size='large' onClick={onClickBookMarkRemoveHandle}>
+              친구 목록에서 제거
+            </Button>
+          ) : (
+            <Button size='large' onClick={onClickBookmarkAddHandle}>
+              친구 목록에 담기
+            </Button>
+          )}
         </div>
       </div>
     </div>

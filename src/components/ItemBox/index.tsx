@@ -1,4 +1,4 @@
-import styles from './searchResult.module.scss'
+import styles from './itemBox.module.scss'
 import Modal from 'components/Modal'
 import ModalPortal from 'components/Modal/Portal'
 import { Item } from 'types'
@@ -19,20 +19,21 @@ const ItemBox = ({ item }: props) => {
     <li className={styles.itemBox}>
       <button type='button' onClick={handleClickModal}>
         <img src={item.filename} alt='유기동물 사진' />
-        <dl>
-          <div>
-            <dt>상태:</dt>
-            <dd>{item.processState}</dd>
-          </div>
-          <div>
-            <dt>성별:</dt>
-            <dd>{item.sexCd}</dd>
-          </div>
-          <div>
-            <dt>보호소:</dt>
-            <dd>{item.careNm}</dd>
-          </div>
-        </dl>
+        <div>
+          <dl>
+            <div>
+              <dt>상태:</dt>
+              <dd>{item.processState}</dd>
+            </div>
+            <div>
+              <dt>성별:</dt>
+              <dd>{item.sexCd}</dd>
+            </div>
+            <div>
+              <span>보호소:{item.careNm}</span>
+            </div>
+          </dl>
+        </div>
       </button>
       <ModalPortal>{isModalOpen && <Modal setIsOpenPopup={setIsModalOpen} info={item} />}</ModalPortal>
     </li>

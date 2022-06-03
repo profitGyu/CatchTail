@@ -6,7 +6,7 @@ import { findAbandonmentAPI } from 'servies/openData'
 const useQuerySearch = () => {
   const Searchvalue = useRecoilValue(SearchState)
 
-  const { data, isLoading } = useQuery(
+  const { data, isLoading, isError } = useQuery(
     ['animal', Searchvalue],
     () =>
       findAbandonmentAPI(Searchvalue).then((rep) => {
@@ -14,13 +14,13 @@ const useQuerySearch = () => {
       }),
     {
       enabled: !!Searchvalue,
-      refetchOnWindowFocus: false,
       staleTime: 2 * 60 * 1000,
-      retry: 2,
+      refetchOnWindowFocus: false,
+      refetchOnMount: false,
     }
   )
 
-  return { data, isLoading }
+  return { data, isLoading, isError }
 }
 
 export default useQuerySearch

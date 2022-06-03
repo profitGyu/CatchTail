@@ -33,7 +33,6 @@ const DataInput = () => {
       endDate={endDate}
       disabledKeyboardNavigation
       selectsRange
-      // inline
     />
   )
 }
