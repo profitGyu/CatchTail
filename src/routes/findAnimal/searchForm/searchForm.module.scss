@@ -2,24 +2,33 @@
 
 .searchFrom {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
-  background-color: snow;
-  border-radius: 5px;
+  background-color: transparent;
 
-  .menu {
-    display: none;
+  .dateContanter {
+    display: flex;
+    width: 100%;
+
+    input {
+      width: 100%;
+      text-align: center;
+      cursor: pointer;
+    }
   }
 
   .inputContainer {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    width: 260px;
     height: 40px;
     padding: 0 20px;
+    margin-top: 20px;
     background: colors.$INPUT_BG;
     border-radius: 5px;
-    margin-bottom: 20px;
 
     input {
       width: 280px;
@@ -42,32 +51,45 @@
     transform: rotate(-180deg);
   }
 
-  .menuActive {
-    position: absolute;
-    display: block;
-    width: 260px;
-    background: colors.$BACKGROUND;
+  .menuContainer {
+    position: relative;
+    width: 100%;
 
-    li {
-      align-items: center;
-      height: 40px;
-      padding: 10px;
-      font-size: 16px;
-      text-align: center;
+    .menu {
+      display: none;
     }
 
-    li:hover {
-      background: colors.$INPUT_BG;
-      opacity: 1.2;
+    .menuActive {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      background: colors.$BACKGROUND;
 
-      button {
-        color: colors.$TEXT_WHITE;
+      li {
+        align-items: center;
+        padding: 4px;
+        text-align: center;
+
+        button {
+          width: 100%;
+        }
+      }
+
+      li:hover {
+        background: colors.$INPUT_BG;
+        opacity: 1.2;
+
+        button {
+          color: colors.$TEXT_WHITE;
+        }
       }
     }
   }
 
   .choise {
     display: flex;
+    margin-top: 10px;
 
     button {
       font-size: 32px;

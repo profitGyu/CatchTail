@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import styles from './header.module.scss'
 import GNB from '../GNB'
-import { cx } from 'styles'
+import { Logo } from 'assets/svgs'
 
 const Header = () => {
   const [clicked, setClicked] = useState(false)

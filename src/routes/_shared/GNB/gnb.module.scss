@@ -1,0 +1,44 @@
+@use '/src/styles/constants/colors';
+
+.gnbList {
+  display: flex;
+  color: colors.$TEXT_WHITE;
+
+  li {
+    + li {
+      margin-left: 8px;
+    }
+
+    a {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      padding: 10px;
+      font-weight: 600;
+      color: colors.$TEXT_WHITE;
+      border-radius: 10px;
+      transition: 0.5s ease-in-out;
+    }
+
+    a:hover {
+      color: colors.$TEXT_PRIMARY;
+      opacity: 0.8;
+      transition: 0.5s ease-in-out;
+    }
+
+    .isActive {
+      position: relative;
+      color: colors.$TEXT_WHITE;
+      text-decoration: revert;
+      transition: 0.5s ease-in-out;
+
+      // .sideLine {
+      //   position: absolute;
+      //   width: 32px;
+      //   height: 2px;
+      //   background-color: colors.$TEXT_WHITE;
+      //   transition: 0.5s ease-in-out;
+      // }
+    }
+  }
+}

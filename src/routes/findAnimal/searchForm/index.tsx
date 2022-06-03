@@ -53,29 +53,35 @@ const SearchForm = () => {
 
   return (
     <form onSubmit={handleSubmit} className={styles.searchFrom}>
-      <DataInput />
-      <label htmlFor='cityClass'>유기동물들의 친구가 되어주세요!</label>
+      <h1>
+        <label htmlFor='cityClass'>유기동물들의 친구가 되어주세요!</label>
+      </h1>
+      <div className={styles.dateContanter}>
+        <DataInput />
+      </div>
       <div className={styles.inputContainer} onClick={handleArrowIconClick} role='button' tabIndex={0}>
         <input id='cityClass' type='text' value={city.orgdownNm} readOnly />
         <ArrowIcon className={cx(styles.arrowIcon, { [styles.arrowIconOpen]: isActive })} />
       </div>
-      <ul role='menu' className={cx(styles.menu, { [styles.menuActive]: isActive })}>
-        {CITY.map((item) => {
-          return (
-            <li key={item.orgCd}>
-              <button
-                onClick={handleClick}
-                data-name={item.orgdownNm}
-                data-num={item.orgCd}
-                type='button'
-                data-name-num
-              >
-                {item.orgdownNm}
-              </button>
-            </li>
-          )
-        })}
-      </ul>
+      <div className={styles.menuContainer}>
+        <ul role='menu' className={cx(styles.menu, { [styles.menuActive]: isActive })}>
+          {CITY.map((item) => {
+            return (
+              <li key={item.orgCd}>
+                <button
+                  onClick={handleClick}
+                  data-name={item.orgdownNm}
+                  data-num={item.orgCd}
+                  type='button'
+                  data-name-num
+                >
+                  {item.orgdownNm}
+                </button>
+              </li>
+            )
+          })}
+        </ul>
+      </div>
       <ul className={styles.choise}>
         {ANIMAL_KIND.map((item) => {
           return (

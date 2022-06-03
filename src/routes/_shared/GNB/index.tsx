@@ -1,9 +1,23 @@
+import styles from './gnb.module.scss'
+import { cx } from 'styles'
+import { NavLink } from 'react-router-dom'
+
+import { NAVLIST } from 'model'
+
 const GNB = () => {
   return (
     <nav>
-      <ul>
-        <li>보호중인 동물</li>
-        <li>동물보호센터</li>
+      <ul className={styles.gnbList}>
+        {NAVLIST.map((item) => {
+          return (
+            <li key={item.id}>
+              <NavLink to={item.path} className={({ isActive }) => cx({ [styles.isActive]: isActive })}>
+                {item.title}
+                <div className={styles.sideLine} />
+              </NavLink>
+            </li>
+          )
+        })}
       </ul>
     </nav>
   )

@@ -3,6 +3,7 @@
   display: -webkit-box;
   height: #{$lineHeight * $line}px;
   overflow: hidden;
+  text-overflow: ellipsis;
   word-break: keep-all;
   -webkit-line-clamp: $line;
   // -webkit-box-orient: vertical;

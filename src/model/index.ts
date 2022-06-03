@@ -1,9 +1,22 @@
 import { ICity } from 'types'
 
-// interface ICity {
-//   orgCd: string
-//   orgdownNm: string
-// }
+const NAVLIST = [
+  {
+    title: '보호중인 동물',
+    path: '',
+    id: 'nav_list_1',
+  },
+  {
+    title: '관심',
+    path: 'bookmark',
+    id: 'nav_list_2',
+  },
+  {
+    title: '동물보호센터',
+    path: 'protect',
+    id: 'nav_list_3',
+  },
+]
 
 const CITY: ICity[] = [
   {
@@ -100,4 +113,4 @@ const ANIMAL_KIND: IAnimal[] = [
   },
 ]
 
-export { ANIMAL_KIND, CITY }
+export { ANIMAL_KIND, CITY, NAVLIST }

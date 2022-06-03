@@ -4,7 +4,6 @@ import SearchResult from './searchResult'
 const FindAnimal = () => {
   return (
     <div>
-      <SearchForm />
       <SearchResult />
     </div>
   )
