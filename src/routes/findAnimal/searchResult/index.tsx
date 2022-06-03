@@ -8,7 +8,7 @@ import ItemBox from 'components/ItemBox'
 const SearchResult = () => {
   const { data, isLoading, isError } = useQuerySearch()
 
-  if (isEmpty(data)) return null
+  // if (isEmpty(data)) return null
   return (
     <div>
       <ul className={styles.resultContainer}>
