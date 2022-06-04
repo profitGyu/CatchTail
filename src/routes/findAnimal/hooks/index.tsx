@@ -19,9 +19,11 @@ const useQuerySearch = () => {
       refetchOnMount: false,
       refetchOnReconnect: true,
       retry: 1,
-      getPreviousPageParam: (firstPage) => firstPage.pageNo - 1,
+      // getPreviousPageParam: (firstPage) => firstPage.pageNo - 1,
       getNextPageParam: (lastPage) => {
-        const endPage = Math.floor(lastPage.totalCount / lastPage.numOfRows)
+        const endPage =
+          lastPage.totalCount > lastPage.numOfRows ? Math.floor(lastPage.totalCount / lastPage.numOfRows) : 1
+        console.log('endPage:', endPage)
         const result = endPage === lastPage.pageNo ? undefined : lastPage.pageNo + 1
         return result
       },

@@ -2,10 +2,10 @@ import styles from './searchResult.module.scss'
 import useQuerySearch from '../hooks'
 
 import Skeleton from '../skeleton'
-import { isEmpty } from 'lodash'
+
 import ItemBox from 'components/ItemBox'
 import { useInView } from 'react-intersection-observer'
-
+import { isEmpty } from 'lodash'
 import { useEffect } from 'react'
 
 const SearchResult = () => {
@@ -18,8 +18,9 @@ const SearchResult = () => {
     }
   }, [fetchNextPage, inView, isLoading])
 
-  if (status === 'error') return <div>에러 입니다.</div>
+  console.log('data?.pages:', data?.pages)
 
+  if (status === 'error') return <div>에러 입니다.</div>
   return (
     <div>
       <ul className={styles.resultContainer}>
