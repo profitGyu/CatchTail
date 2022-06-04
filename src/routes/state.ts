@@ -12,7 +12,7 @@ const SearchState = atom<ISearchProps>({
   default: {
     upkind: '',
     upr_cd: '',
-    bgnde: dayjs().subtract(1, 'day').format('YYYYMMDD'),
+    bgnde: dayjs().subtract(7, 'day').format('YYYYMMDD'),
     endde: dayjs().format('YYYYMMDD'),
   },
 })

@@ -1,3 +1,13 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.home {
+  height: 100%;
+  padding: 20px;
+  background: colors.$BACKGROUNDHOME;
+}
+
 .chartSection {
-  width: 50%;
+  max-width: 600px;
+  height: 600px;
 }

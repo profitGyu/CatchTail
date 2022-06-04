@@ -1,12 +1,11 @@
 import styles from './home.module.scss'
-import Chart from './chart'
+import BarChart from './chart'
 
 const Home = () => {
   return (
-    <div>
+    <div className={styles.home}>
       <section className={styles.chartSection}>
-        안녕
-        <Chart />
+        <BarChart />
       </section>
       <section>안녕</section>
       <section>안녕</section>

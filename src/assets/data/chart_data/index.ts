@@ -1,3 +1,11 @@
+const ABANDONED_ANIMAL_TOTAL = [
+  { yaer: '2018', count: 121077 },
+  { yaer: '2019', count: 135791 },
+  { yaer: '2020', count: 130401 },
+  { yaer: '2021', count: 117075 },
+  { yaer: '2022', count: 43908 },
+]
+
 const dog = [
   { yaer: '2018', count: 91797 },
   { yaer: '2019', count: 102363 },
@@ -21,10 +29,10 @@ const ets = [
   { yaer: '2021', count: 1427 },
   { yaer: '2022', count: 556 },
 ]
-const dataList = [
+const DATALIST = [
   { id: 'dog', data: dog },
   { id: 'cat', data: cat },
   { id: 'ets', data: ets },
 ]
 
-export default dataList
+export { DATALIST, ABANDONED_ANIMAL_TOTAL }

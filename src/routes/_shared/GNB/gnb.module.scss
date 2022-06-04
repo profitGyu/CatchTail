@@ -3,7 +3,7 @@
 
 .gnbList {
   display: flex;
-  color: colors.$TEXT_WHITE;
+  color: colors.$TEXT_PRIMARY;
 
   li {
     + li {
@@ -16,7 +16,7 @@
       width: 100%;
       padding: 10px;
       font-weight: 600;
-      color: colors.$TEXT_WHITE;
+      color: colors.$TEXT_SECONDARY;
       border-radius: 10px;
       transition: 0.5s ease-in-out;
     }

@@ -7,7 +7,7 @@ const NAVLIST = [
     id: 'nav_list_1',
   },
   {
-    title: '보호중인 동물',
+    title: '보호 동물',
     path: 'find',
     id: 'nav_list_2',
   },

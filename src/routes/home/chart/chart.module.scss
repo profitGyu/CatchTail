@@ -1,0 +1,18 @@
+@use '/src/styles/constants/colors';
+
+.barChart {
+  color: colors.$TEXT_H1;
+
+  h1 {
+    font-size: 2em;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  p {
+    margin-top: 2px;
+    font-size: 0.8em;
+    color: colors.$CARD_TEXT_SECONDARY;
+    text-align: right;
+  }
+}
