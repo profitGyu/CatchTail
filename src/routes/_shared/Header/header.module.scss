@@ -12,8 +12,8 @@
   @include responsive.between(M, ML) {
     .navContainer {
       display: flex;
-      width: 100%;
       justify-content: flex-end;
+      width: 100%;
     }
   }
 

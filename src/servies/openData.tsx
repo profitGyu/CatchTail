@@ -13,14 +13,14 @@ const BASE_URL = `/1543061/abandonmentPublicSrvc/`
 //   },
 // })
 
-const findAbandonmentAPI = (params: ISearchProps) => {
+const findAbandonmentAPI = (params: ISearchProps, page?: string) => {
   return axios.get<IFindAbandonmentRep>(`${BASE_URL}abandonmentPublic`, {
     params: {
       ...params,
       serviceKey: process.env.REACT_APP_OPEN_DATA_API_KEY,
       numOfRows: '40',
-      pageNo: '1',
       _type: 'json',
+      pageNo: page,
     },
   })
 }

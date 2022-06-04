@@ -4,22 +4,35 @@ import useQuerySearch from '../hooks'
 import Skeleton from '../skeleton'
 import { isEmpty } from 'lodash'
 import ItemBox from 'components/ItemBox'
+import { useInView } from 'react-intersection-observer'
+
+import { useEffect } from 'react'
 
 const SearchResult = () => {
-  const { data, isLoading, isError } = useQuerySearch()
+  const [ref, inView] = useInView()
+  const { data, isLoading, fetchNextPage, isFetching } = useQuerySearch()
 
-  // if (isEmpty(data)) return null
+  useEffect(() => {
+    if (inView && !isLoading) {
+      fetchNextPage()
+    }
+  }, [fetchNextPage, inView, isLoading])
+
+  console.log('isFetching:', isFetching)
   return (
     <div>
       <ul className={styles.resultContainer}>
-        {isLoading
+        {isFetching
           ? new Array(30).fill(1).map((_, i) => {
               // eslint-disable-next-line react/no-array-index-key
               return <Skeleton key={`skeleton-${i}`} />
             })
-          : data?.item.map((item) => {
-              return <ItemBox item={item} key={item.desertionNo} />
-            })}
+          : data?.pages.map((page) =>
+              page.items.item.map((item) => {
+                return <ItemBox item={item} key={item.desertionNo} />
+              })
+            )}
+        {!isLoading && <div style={{ width: '100%', height: '50px' }} ref={ref} />}
       </ul>
     </div>
   )

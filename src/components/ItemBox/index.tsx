@@ -14,23 +14,22 @@ const ItemBox = ({ item }: props) => {
   const handleClickModal = () => {
     setIsModalOpen((pre) => !pre)
   }
-
   return (
     <li className={styles.itemBox}>
       <button type='button' onClick={handleClickModal}>
         <img src={item.filename} alt='유기동물 사진' />
-        <div>
+        <div className={styles.textContainer}>
+          <h1>
+            {item.kindCd.replace(/\[.*?\] /g, '')},{item.sexCd === 'M' ? '남아' : ' 여아'}
+          </h1>
           <dl>
             <div>
-              <dt>상태:</dt>
-              <dd>{item.processState}</dd>
+              <dt>털색:</dt>
+              <dd>{item.colorCd}</dd>
             </div>
             <div>
-              <dt>성별:</dt>
-              <dd>{item.sexCd}</dd>
-            </div>
-            <div>
-              <span>보호소:{item.careNm}</span>
+              <dt>보호:</dt>
+              <dd>{item.careNm}</dd>
             </div>
           </dl>
         </div>
