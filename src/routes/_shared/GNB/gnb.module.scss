@@ -1,4 +1,5 @@
 @use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
 
 .gnbList {
   display: flex;
@@ -31,14 +32,6 @@
       color: colors.$TEXT_WHITE;
       text-decoration: revert;
       transition: 0.5s ease-in-out;
-
-      // .sideLine {
-      //   position: absolute;
-      //   width: 32px;
-      //   height: 2px;
-      //   background-color: colors.$TEXT_WHITE;
-      //   transition: 0.5s ease-in-out;
-      // }
     }
   }
 }

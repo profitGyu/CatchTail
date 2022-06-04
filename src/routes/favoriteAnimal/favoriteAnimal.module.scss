@@ -4,6 +4,7 @@
 .resultContainer {
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   height: calc(100vh);
   overflow-y: scroll;
   background: colors.$BACKGROUNDTWO_GRADIENT;

@@ -17,7 +17,6 @@ const SearchForm = () => {
   const [isActive, SetIsActive] = useState(false)
   const [city, setCity] = useState<ICity>({ orgCd: '', orgdownNm: '전체' })
   const [animal, setAniaml] = useState<string>('')
-  const [aniMalIsActive, SetaniMalIsActive] = useState(false)
 
   const setSearchState = useSetRecoilState(SearchState)
   const DateRangevalue = useRecoilValue(DateRangeState)
@@ -34,8 +33,9 @@ const SearchForm = () => {
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
     if (e.currentTarget.dataset.num && e.currentTarget.dataset.name) {
+      const num = e.currentTarget.dataset.num !== '1' ? e.currentTarget.dataset.num : ''
       setCity({
-        orgCd: e.currentTarget.dataset.num,
+        orgCd: num,
         orgdownNm: e.currentTarget.dataset.name,
       })
     }
@@ -44,7 +44,6 @@ const SearchForm = () => {
 
   const handleAnimalClick = (e: MouseEvent<HTMLButtonElement>) => {
     setAniaml(e.currentTarget.value)
-    SetaniMalIsActive((current) => !current)
   }
 
   const handleArrowIconClick = () => {
@@ -90,7 +89,7 @@ const SearchForm = () => {
                 onClick={handleAnimalClick}
                 value={item.value}
                 type='button'
-                className={cx({ [styles.animalButton]: aniMalIsActive })}
+                className={cx({ [styles.animalButton]: animal === item.value })}
               >
                 {item.text}
               </button>

@@ -7,6 +7,8 @@ import { useMount } from 'react-use'
 import { useSetRecoilState } from 'recoil'
 import { bookMarkListState } from 'states'
 
+import logo from '../../../assets/images/logo.png'
+
 const Header = () => {
   const setBookmarkList = useSetRecoilState(bookMarkListState)
   useMount(() => {
@@ -16,7 +18,9 @@ const Header = () => {
   })
   return (
     <div className={styles.header}>
-      <div className={styles.logo}>Catch Tail</div>
+      <div className={styles.logo}>
+        <img src={logo} alt='로고' />
+      </div>
       <div className={styles.navContainer}>
         <GNB />
       </div>

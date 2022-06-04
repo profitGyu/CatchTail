@@ -4,9 +4,9 @@ import { bookMarkListState } from 'states'
 import ItemBox from 'components/ItemBox'
 
 const FavoriteAnimal = () => {
-  const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
+  const [BookmarkList] = useRecoilState(bookMarkListState)
   return (
-    <div className={styles.resultContainer}>
+    <div>
       <ul className={styles.resultContainer}>
         {BookmarkList.map((item) => (
           <ItemBox item={item} key={item.desertionNo} />

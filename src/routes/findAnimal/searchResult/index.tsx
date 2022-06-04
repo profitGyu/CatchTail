@@ -5,7 +5,6 @@ import Skeleton from '../skeleton'
 
 import ItemBox from 'components/ItemBox'
 import { useInView } from 'react-intersection-observer'
-import { isEmpty } from 'lodash'
 import { useEffect } from 'react'
 
 const SearchResult = () => {
@@ -18,14 +17,12 @@ const SearchResult = () => {
     }
   }, [fetchNextPage, inView, isLoading])
 
-  console.log('data?.pages:', data?.pages)
-
   if (status === 'error') return <div>에러 입니다.</div>
   return (
     <div>
       <ul className={styles.resultContainer}>
         {isFetching
-          ? new Array(30).fill(1).map((_, i) => {
+          ? new Array(40).fill(1).map((_, i) => {
               // eslint-disable-next-line react/no-array-index-key
               return <Skeleton key={`skeleton-${i}`} />
             })

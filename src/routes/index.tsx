@@ -5,15 +5,17 @@ import Layout from './_shared/Layout'
 import FindAnimal from './findAnimal'
 import ProtectAnimal from './protectAnimal'
 import FavoriteAnimal from './favoriteAnimal'
+import Home from './home'
 
 const App = () => {
   return (
     <div className={styles.app}>
       <Routes>
         <Route element={<FindLayout />}>
-          <Route path='/' element={<FindAnimal />} />
+          <Route path='/find' element={<FindAnimal />} />
         </Route>
         <Route element={<Layout />}>
+          <Route path='' element={<Home />} />
           <Route path='/protect' element={<ProtectAnimal />} />
           <Route path='/bookmark' element={<FavoriteAnimal />} />
         </Route>

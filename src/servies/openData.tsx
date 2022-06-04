@@ -1,8 +1,8 @@
 import axios from 'axios'
 import { IFindAbandonmentRep, ISearchProps } from 'types'
 
-const PROXY = window.location.hostname === 'localhost' ? '/api' : '/proxy'
-const BASE_URL = `/1543061/abandonmentPublicSrvc/`
+const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy'
+const BASE_URL = `${PROXY}/1543061/abandonmentPublicSrvc/`
 
 // const findSidoAPI = axios.get(`${BASE_URL}sido`, {
 //   params: {

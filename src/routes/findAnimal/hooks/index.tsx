@@ -1,7 +1,8 @@
-import { useInfiniteQuery, useQuery } from 'react-query'
+import { useInfiniteQuery } from 'react-query'
+import { findAbandonmentAPI } from 'servies/openData'
+
 import { useRecoilValue } from 'recoil'
 import { SearchState } from 'routes/state'
-import { findAbandonmentAPI } from 'servies/openData'
 
 const useQuerySearch = () => {
   const Searchvalue = useRecoilValue(SearchState)
@@ -23,7 +24,6 @@ const useQuerySearch = () => {
       getNextPageParam: (lastPage) => {
         const endPage =
           lastPage.totalCount > lastPage.numOfRows ? Math.floor(lastPage.totalCount / lastPage.numOfRows) : 1
-        console.log('endPage:', endPage)
         const result = endPage === lastPage.pageNo ? undefined : lastPage.pageNo + 1
         return result
       },

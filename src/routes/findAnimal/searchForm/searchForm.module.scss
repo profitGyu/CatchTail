@@ -98,18 +98,18 @@
 
   .choise {
     display: flex;
-    margin-top: 10px;
+    margin: 20px 0;
 
     button {
-      font-size: 32px;
+      font-size: 26px;
     }
 
     button:hover {
-      font-size: 40px;
+      font-size: 32px;
     }
 
     .animalButton {
-      font-size: 46px;
+      font-size: 32px;
     }
   }
 }

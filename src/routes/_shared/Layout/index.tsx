@@ -3,7 +3,6 @@ import styles from './layout.module.scss'
 import { Outlet } from 'react-router-dom'
 
 import Header from '../Header'
-import SearchForm from 'routes/findAnimal/searchForm'
 import { Waves } from 'assets/svgs'
 
 const Layout = () => {

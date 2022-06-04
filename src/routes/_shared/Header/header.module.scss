@@ -18,7 +18,10 @@
   }
 
   .logo {
-    width: 250px;
+    img {
+      width: 120px;
+      height: 50px;
+    }
 
     @include responsive.between(M, ML) {
       display: none;

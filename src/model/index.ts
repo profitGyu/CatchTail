@@ -2,25 +2,30 @@ import { ICity } from 'types'
 
 const NAVLIST = [
   {
-    title: '보호중인 동물',
+    title: 'home',
     path: '',
     id: 'nav_list_1',
   },
   {
-    title: '관심',
-    path: 'bookmark',
+    title: '보호중인 동물',
+    path: 'find',
     id: 'nav_list_2',
   },
   {
-    title: '동물보호센터',
-    path: 'protect',
+    title: '관심',
+    path: 'bookmark',
     id: 'nav_list_3',
   },
+  // {
+  //   title: '동물보호센터',
+  //   path: 'protect',
+  //   id: 'nav_list_4',
+  // },
 ]
 
 const CITY: ICity[] = [
   {
-    orgCd: '',
+    orgCd: '1',
     orgdownNm: '전체',
   },
   {
@@ -96,20 +101,24 @@ const CITY: ICity[] = [
 interface IAnimal {
   text: string
   value: string
+  name: string
 }
 
 const ANIMAL_KIND: IAnimal[] = [
   {
     text: '🐕',
     value: '417000',
+    name: 'dog',
   },
   {
     text: '🐈',
     value: '422400',
+    name: 'cat',
   },
   {
     text: '🐾',
     value: '429900',
+    name: 'etc',
   },
 ]
 
