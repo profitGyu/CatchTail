@@ -1,5 +1,5 @@
 import DATALIST from 'assets/data/chart_data'
-import { VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTheme, VictoryTooltip } from 'victory'
+import { VictoryAxis, VictoryBar, VictoryChart, VictoryStack, VictoryTooltip } from 'victory'
 
 const CustomTooltip = () => {
   return (
