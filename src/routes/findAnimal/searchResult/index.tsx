@@ -10,7 +10,7 @@ import { useEffect } from 'react'
 
 const SearchResult = () => {
   const [ref, inView] = useInView()
-  const { data, isLoading, fetchNextPage, isFetching } = useQuerySearch()
+  const { data, isLoading, fetchNextPage, isFetching, status } = useQuerySearch()
 
   useEffect(() => {
     if (inView && !isLoading) {
@@ -18,7 +18,8 @@ const SearchResult = () => {
     }
   }, [fetchNextPage, inView, isLoading])
 
-  console.log('isFetching:', isFetching)
+  if (status === 'error') return <div>에러 입니다.</div>
+
   return (
     <div>
       <ul className={styles.resultContainer}>

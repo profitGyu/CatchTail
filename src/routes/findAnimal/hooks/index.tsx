@@ -6,7 +6,7 @@ import { findAbandonmentAPI } from 'servies/openData'
 const useQuerySearch = () => {
   const Searchvalue = useRecoilValue(SearchState)
 
-  const { data, isLoading, isError, fetchNextPage, isFetching } = useInfiniteQuery(
+  const { status, data, isLoading, isError, fetchNextPage, isFetching } = useInfiniteQuery(
     ['animal', Searchvalue],
     ({ pageParam = 1 }) =>
       findAbandonmentAPI(Searchvalue, pageParam).then((rep) => {
@@ -20,11 +20,15 @@ const useQuerySearch = () => {
       refetchOnReconnect: true,
       retry: 1,
       getPreviousPageParam: (firstPage) => firstPage.pageNo - 1,
-      getNextPageParam: (lastPage) => lastPage.pageNo + 1,
+      getNextPageParam: (lastPage) => {
+        const endPage = Math.floor(lastPage.totalCount / lastPage.numOfRows)
+        const result = endPage === lastPage.pageNo ? undefined : lastPage.pageNo + 1
+        return result
+      },
     }
   )
 
-  return { data, isLoading, isError, fetchNextPage, isFetching }
+  return { data, isLoading, isError, fetchNextPage, isFetching, status }
 }
 
 export default useQuerySearch
