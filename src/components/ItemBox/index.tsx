@@ -3,21 +3,33 @@ import Modal from 'components/Modal'
 import ModalPortal from 'components/Modal/Portal'
 import { Item } from 'types'
 import { useState } from 'react'
+import useDragDrop from 'hooks/useDragDrop'
 
 interface props {
   item: Item
+  index?: number
 }
 
-const ItemBox = ({ item }: props) => {
+const ItemBox = ({ item, index }: props) => {
+  const { handleDragStart, handleDragOver, handleDragEnd, handleOnDrop } = useDragDrop()
+
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const handleClickModal = () => {
     setIsModalOpen((pre) => !pre)
   }
   return (
-    <li className={styles.itemBox}>
+    <li
+      className={styles.itemBox}
+      draggable={false}
+      data-position={index}
+      onDragOver={handleDragOver}
+      onDragStart={handleDragStart}
+      onDragEnd={handleDragEnd}
+      onDrop={handleOnDrop}
+    >
       <button type='button' onClick={handleClickModal}>
-        <img src={item.filename} alt='유기동물 사진' />
+        <img src={item.filename.replace('http', 'https')} alt='유기동물 사진' />
         <div className={styles.textContainer}>
           <h1>
             {item.kindCd.replace(/\[.*?\] /g, '')},{item.sexCd === 'M' ? '남아' : ' 여아'}

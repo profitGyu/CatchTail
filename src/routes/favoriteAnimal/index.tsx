@@ -8,8 +8,8 @@ const FavoriteAnimal = () => {
   return (
     <div>
       <ul className={styles.resultContainer}>
-        {BookmarkList.map((item) => (
-          <ItemBox item={item} key={item.desertionNo} />
+        {BookmarkList.map((item, index) => (
+          <ItemBox item={item} key={item.desertionNo} index={index} />
         ))}
       </ul>
     </div>

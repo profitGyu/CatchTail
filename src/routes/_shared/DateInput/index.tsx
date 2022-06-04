@@ -26,7 +26,7 @@ const DataInput = () => {
       locale={ko}
       selected={startDate}
       dateFormat='yyyy년MM월dd일'
-      minDate={new Date('2022-02-01')}
+      minDate={new Date('2016-01-01')}
       maxDate={new Date()}
       onChange={handleChange}
       startDate={startDate}
