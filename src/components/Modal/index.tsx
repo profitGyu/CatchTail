@@ -54,7 +54,7 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
           </button>
         </header>
         <div className={styles.imgContainer}>
-          <img src={info.popfile} alt='유기동물 사진' />
+          <img src={info.popfile.replace('http', 'https')} alt='유기동물 사진' />
         </div>
         <div className={styles.textContainer}>
           <div className={styles.rightWapper}>

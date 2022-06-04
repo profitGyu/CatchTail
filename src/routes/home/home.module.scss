@@ -4,10 +4,34 @@
 .home {
   height: 100%;
   padding: 20px;
+  overflow: scroll;
   background: colors.$BACKGROUNDHOME;
-}
 
-.chartSection {
-  max-width: 600px;
-  height: 600px;
+  .intoSection {
+    width: 100%;
+    height: 300px;
+    text-align: center;
+
+    h1 {
+      margin: 5px;
+      font-size: 2em;
+      font-weight: 600;
+    }
+
+    h2 {
+      margin: 5px;
+      font-size: 1.8em;
+    }
+
+    h4 {
+      margin: 5px;
+      font-size: 1em;
+      color: colors.$CARD_TEXT_SECONDARY;
+    }
+  }
+
+  .chartSection {
+    width: 100%;
+    height: 600px;
+  }
 }

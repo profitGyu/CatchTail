@@ -4,7 +4,7 @@ import { ISearchProps } from 'types'
 
 const DateRangeState = atom<string[]>({
   key: '#DateRangeState',
-  default: [dayjs().subtract(1, 'day').format('YYYYMMDD'), dayjs().format('YYYYMMDD')],
+  default: [dayjs().subtract(7, 'day').format('YYYYMMDD'), dayjs().format('YYYYMMDD')],
 })
 
 const SearchState = atom<ISearchProps>({
