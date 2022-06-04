@@ -1,37 +1,57 @@
 @use '/src/styles/constants/colors';
 @use '/src/styles/mixins/responsive';
 
-.home {
+.main {
   height: 100%;
-  padding: 20px;
   overflow: scroll;
-  background: colors.$BACKGROUNDHOME;
+  text-align: center;
 
-  .intoSection {
-    width: 100%;
-    height: 300px;
-    text-align: center;
+  h1 {
+    margin: 5px;
+    font-size: 2em;
+    font-weight: 600;
+  }
 
-    h1 {
-      margin: 5px;
-      font-size: 2em;
-      font-weight: 600;
-    }
+  h2 {
+    margin: 5px;
+    font-size: 1.8em;
+  }
 
-    h2 {
-      margin: 5px;
-      font-size: 1.8em;
-    }
+  h4 {
+    margin: 5px;
+    font-size: 1em;
+    color: colors.$CARD_TEXT_SECONDARY;
+  }
 
-    h4 {
-      margin: 5px;
-      font-size: 1em;
-      color: colors.$CARD_TEXT_SECONDARY;
+  .home {
+    height: 60vh;
+    padding: 80px 20px;
+    background: colors.$BACKGROUNDHOME;
+
+    .intoSection {
+      width: 100%;
+      text-align: center;
+      background: colors.$BACKGROUNDHOME;
     }
   }
 
   .chartSection {
+    display: flex;
+    flex-direction: column;
     width: 100%;
     height: 600px;
+    margin-top: 20px;
+
+    @include responsive.after(MD) {
+      flex-direction: row;
+      height: 800px;
+    }
+
+    .textSection {
+      display: flex;
+      flex-direction: column;
+      height: 400px;
+      justify-content: center;
+    }
   }
 }

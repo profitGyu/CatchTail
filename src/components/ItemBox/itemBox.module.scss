@@ -15,17 +15,19 @@
   border: 1px solid rgb(232, 231, 230);
   border-radius: 0.5em;
   box-shadow: #ffd4b8 2px 2px 4px 0;
-  transition: all 150ms ease 0s;
+  transition: all 0.4s ease;
   animation: 1s ease 0s 1 normal none running dnIPrY;
 
   button {
     width: 100%;
     font-size: 0.7em;
     text-align: initial;
+    transition: all 0.4s ease;
 
     .textContainer {
       display: flex;
       flex-direction: column;
+      transition: all 0.4s ease;
 
       h1 {
         margin-bottom: 2px;
@@ -50,6 +52,7 @@
     height: 90px;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
+    transition: all 0.4s ease;
   }
 
   @include responsive.after(SD) {
