@@ -28,7 +28,12 @@ const SearchResult = () => {
               return <Skeleton key={`skeleton-${i}`} />
             })
           : data?.pages.map((page) => {
-              if (isEmpty(page.items.item)) return <div>검색 결과가 없습니다.</div>
+              if (isEmpty(page.items.item))
+                return (
+                  <div>
+                    <li>검색 결과가 없습니다.</li>
+                  </div>
+                )
               return page.items.item.map((item) => {
                 return <ItemBox item={item} key={item.desertionNo} />
               })
