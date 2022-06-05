@@ -51,17 +51,17 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
   }, [BookmarkList, info.desertionNo])
 
   const handleManageClick = (e: MouseEvent<HTMLButtonElement>) => {
-    const { memberSeq } = e.currentTarget.dataset
-    navigate(`detail/${memberSeq}`, { state: info })
+    const { number } = e.currentTarget.dataset
+    navigate(`../detail/${number}`, { state: info, replace: true })
   }
 
   return (
     <div className={styles.modal}>
       <div className={styles.modalContainer} ref={outsideRef}>
         <header>
-          <Button size='small' onClick={handleManageClick} dataMemberSeq={info.desertionNo} primary>
+          <button type='button' onClick={handleManageClick} data-number={info.desertionNo}>
             자세히 보기
-          </Button>
+          </button>
           <div className={styles.title}>도움이 필요해요!</div>
           <Button size='small' onClick={handleCloseButtonClick} primary>
             닫기
@@ -101,7 +101,7 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
           </div>
           <div className={styles.leftWapper}>
             <div>
-              <dt>발견일:</dt>
+              <dt>접수일시:</dt>
               <dd>{info.happenDt}</dd>
             </div>
             <div>

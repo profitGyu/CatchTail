@@ -19,7 +19,7 @@ const App = () => {
           <Route path='' element={<Home />} />
           <Route path='protect' element={<ProtectAnimal />} />
           <Route path='bookmark' element={<FavoriteAnimal />} />
-          <Route path='find/detail/:num' element={<DetailAnimal />} />
+          <Route path='detail/:num' element={<DetailAnimal />} />
         </Route>
         <Route path='*' element={<div>잘못된 접근입니다.</div>} />
       </Routes>

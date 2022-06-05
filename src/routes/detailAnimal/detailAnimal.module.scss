@@ -1,0 +1,79 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/responsive';
+
+.detailAnimal {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  overflow-y: scroll;
+
+  .imgContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 40px;
+
+    .imgWapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 350px;
+      height: 350px;
+      background: rgb(250, 250, 250);
+      margin-bottom: 10px;
+
+      img {
+        width: 300px;
+        height: 300px;
+        border-radius: 10px;
+      }
+    }
+  }
+
+  .textContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    background-color: rgb(250, 250, 250);
+
+    @include responsive.after(SD) {
+      flex-direction: row;
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      font-size: 20px;
+    }
+
+    .animalInfo,
+    .shelterInfo {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 20px;
+      margin-right: 20px;
+
+      colgroup {
+        .header {
+          width: 25%;
+        }
+      }
+
+      tr {
+        td,
+        th {
+          padding: 15px;
+          text-align: left;
+          border-bottom: 1px solid colors.$TEXT_SECONDARY;
+        }
+
+        .thead,
+        .tlast {
+          text-align: left;
+        }
+      }
+    }
+  }
+}
