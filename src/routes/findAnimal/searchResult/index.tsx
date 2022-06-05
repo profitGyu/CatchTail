@@ -22,8 +22,8 @@ const SearchResult = () => {
   return (
     <div>
       <ul className={styles.resultContainer}>
-        {isFetching
-          ? new Array(30).fill(1).map((_, i) => {
+        {isLoading
+          ? new Array(45).fill(1).map((_, i) => {
               // eslint-disable-next-line react/no-array-index-key
               return <Skeleton key={`skeleton-${i}`} />
             })
@@ -38,6 +38,11 @@ const SearchResult = () => {
                 return <ItemBox item={item} key={item.desertionNo} />
               })
             })}
+        {isFetching &&
+          new Array(45).fill(1).map((_, i) => {
+            // eslint-disable-next-line react/no-array-index-key
+            return <Skeleton key={`skeleton-${i}`} />
+          })}
         {!isLoading && <div style={{ width: '100%', height: '50px' }} ref={ref} />}
       </ul>
     </div>

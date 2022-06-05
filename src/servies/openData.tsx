@@ -9,7 +9,7 @@ const findAbandonmentAPI = (params: ISearchProps, page?: string) => {
     params: {
       ...params,
       serviceKey: process.env.REACT_APP_OPEN_DATA_API_KEY,
-      numOfRows: '16',
+      numOfRows: '30',
       _type: 'json',
       pageNo: page,
     },
