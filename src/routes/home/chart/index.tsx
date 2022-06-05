@@ -84,8 +84,8 @@ const BarChart = () => {
           })}
         </VictoryStack>
         <VictoryLegend
-          x={200}
-          y={370}
+          x={100}
+          y={365}
           centerTitle
           orientation='horizontal'
           rowGutter={{ top: 10, bottom: 0 }}
@@ -95,8 +95,8 @@ const BarChart = () => {
           data={[{ name: '개' }, { name: '고양이' }, { name: '기타' }]}
         />
         <VictoryLabel
-          x={200}
-          y={450}
+          x={380}
+          y={390}
           style={{ fontFamily: 'inherit', fontSize: '12px', fill: '#a0a0a0' }}
           text='*2022년 6월4일까지의 자료입니다.'
         />

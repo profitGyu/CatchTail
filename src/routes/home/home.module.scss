@@ -13,12 +13,11 @@
   }
 
   h2 {
-    margin: 5px;
     font-size: 1.8em;
   }
 
   h4 {
-    margin: 5px;
+    margin: 20px;
     font-size: 1em;
     color: colors.$CARD_TEXT_SECONDARY;
   }
@@ -32,6 +31,10 @@
       width: 100%;
       text-align: center;
       background: colors.$BACKGROUNDHOME;
+
+      .introName {
+        font-weight: bold;
+      }
     }
   }
 

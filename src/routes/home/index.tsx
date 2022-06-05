@@ -5,15 +5,17 @@ import TypeIt from 'typeit-react'
 import TABLE_DATA from 'assets/data/table_data'
 
 import BarChart from './chart'
+import HelmetTitle from 'components/Helmet'
 
 const Home = () => {
   return (
     <div className={styles.main}>
+      <HelmetTitle title='home' />
       <div className={styles.home}>
         <section className={styles.intoSection}>
           <h1>사지않고 입양하는 문화를 만들기 위해 노력합니다.</h1>
           <br />
-          <h2> Catch Tail은</h2>
+          <h2 className={styles.introName}> Catch Tail은</h2>
           <h2>
             <TypeIt
               options={{
