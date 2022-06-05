@@ -39,19 +39,54 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 600px;
+    height: 550px;
     margin-top: 20px;
+    background: colors.$BACKGROUND;
 
     @include responsive.after(MD) {
       flex-direction: row;
-      height: 800px;
     }
 
-    .textSection {
+    .textContainer {
       display: flex;
       flex-direction: column;
-      height: 400px;
       justify-content: center;
+      height: 50%;
+    }
+  }
+
+  .tableSection {
+    width: 100%;
+    padding: 40px;
+    background: colors.$BACKGROUNDTWO_GRADIENT;
+
+    colgroup {
+      .header {
+        width: 25%;
+      }
+
+      .last {
+        width: 20%;
+      }
+    }
+
+    .table {
+      width: 100%;
+      font-size: 1em;
+
+      tr {
+        td,
+        th {
+          padding: 15px;
+          text-align: left;
+          border-bottom: 1px solid colors.$TEXT_SECONDARY;
+        }
+
+        .thead,
+        .tlast {
+          text-align: left;
+        }
+      }
     }
   }
 }

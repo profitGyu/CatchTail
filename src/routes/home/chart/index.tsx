@@ -38,7 +38,7 @@ const BarChart = () => {
 
   return (
     <div className={styles.barChart}>
-      <VictoryChart domainPadding={{ x: [100, 0], y: [30, 0] }} width={600} height={400}>
+      <VictoryChart domainPadding={{ x: [90, 0], y: [30, 0] }} width={600} height={400} padding={60}>
         <VictoryLabel
           x={25}
           y={15}

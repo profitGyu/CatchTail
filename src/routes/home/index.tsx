@@ -2,6 +2,8 @@ import styles from './home.module.scss'
 
 import TypeIt from 'typeit-react'
 
+import TABLE_DATA from 'assets/data/table_data'
+
 import BarChart from './chart'
 
 const Home = () => {
@@ -26,12 +28,32 @@ const Home = () => {
       </div>
       <section className={styles.chartSection}>
         <BarChart />
-        <div className={styles.textSection}>
+        <div className={styles.textContainer}>
           <h2>매년 전국적으로 10만 마리 이상의 유기동물들이 보호소로 구조되고 있습니다.</h2>
           <h4>안탑깝게도 이중 절반에 가까운 동물들은 다시 가족을 만나지 못합니다.</h4>
         </div>
       </section>
-      <section>안녕</section>
+      <section className={styles.tableSection}>
+        <h2>지역내 보호 리스트</h2>
+        <table className={styles.table}>
+          <colgroup>
+            <col className={styles.header} />
+            <col />
+            <col className={styles.last} />
+          </colgroup>
+          <tbody className={styles.tableBody}>
+            {TABLE_DATA.map((item) => {
+              return (
+                <tr key={item.id}>
+                  <th className={styles.thead}>{item.name}</th>
+                  <td>{item.location}</td>
+                  <td className={styles.tlast}>{item.tel}</td>
+                </tr>
+              )
+            })}
+          </tbody>
+        </table>
+      </section>
     </div>
   )
 }
