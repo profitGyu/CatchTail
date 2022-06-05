@@ -22,7 +22,7 @@ const SearchResult = () => {
     <div>
       <ul className={styles.resultContainer}>
         {isFetching
-          ? new Array(40).fill(1).map((_, i) => {
+          ? new Array(16).fill(1).map((_, i) => {
               // eslint-disable-next-line react/no-array-index-key
               return <Skeleton key={`skeleton-${i}`} />
             })

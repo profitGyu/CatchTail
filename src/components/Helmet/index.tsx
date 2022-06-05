@@ -4,7 +4,7 @@ interface titleType {
   title: string
 }
 
-const SEO = ({ title }: titleType) => {
+const HelmetTitle = ({ title }: titleType) => {
   return (
     <HelmetProvider>
       <Helmet>
@@ -14,4 +14,4 @@ const SEO = ({ title }: titleType) => {
   )
 }
 
-export default SEO
+export default HelmetTitle

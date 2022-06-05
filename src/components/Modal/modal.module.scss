@@ -26,15 +26,21 @@
     animation: slideUp 0.4s cubic-bezier(0.5, 0, 0, 0.8) forwards;
 
     @include responsive.after(SD) {
-      width: 40%;
+      width: 50%;
     }
 
     header {
       display: flex;
+      align-items: center;
       justify-content: space-between;
       width: 90%;
       height: 50px;
       line-height: 50px;
+
+      .title {
+        font-size: 24px;
+        font-weight: 600;
+      }
     }
 
     .imgContainer {
@@ -67,6 +73,7 @@
 
         div {
           display: flex;
+          text-align: initial;
           @include typography.lineClamp(24, 1);
         }
       }

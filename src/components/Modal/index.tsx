@@ -1,13 +1,17 @@
-import { useMemo, useRef } from 'react'
-import { useClickAway } from 'react-use'
 import styles from './modal.module.scss'
 
-import Button from 'components/Button'
-import { Item } from 'types'
-import { useRecoilState } from 'recoil'
-import { bookMarkListState } from 'states'
+import { MouseEvent, useMemo, useRef } from 'react'
+import { useClickAway } from 'react-use'
+
 import _ from 'lodash'
 import store from 'storejs'
+
+import { useRecoilState } from 'recoil'
+import { bookMarkListState } from 'states'
+
+import { Item } from 'types'
+import Button from 'components/Button'
+import { useNavigate } from 'react-router-dom'
 
 interface Props {
   setIsOpenPopup: Function
@@ -17,6 +21,8 @@ interface Props {
 const Modal = ({ setIsOpenPopup, info }: Props) => {
   const outsideRef = useRef<HTMLInputElement>(null)
   const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
+
+  const navigate = useNavigate()
 
   const handleCloseButtonClick = () => {
     setIsOpenPopup(false)
@@ -43,15 +49,23 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
   const isBookMark = useMemo(() => {
     return _.findIndex(BookmarkList, { desertionNo: info.desertionNo }) !== -1
   }, [BookmarkList, info.desertionNo])
+
+  const handleManageClick = (e: MouseEvent<HTMLButtonElement>) => {
+    const { memberSeq } = e.currentTarget.dataset
+    navigate(`detail/${memberSeq}`, { state: info })
+  }
+
   return (
     <div className={styles.modal}>
       <div className={styles.modalContainer} ref={outsideRef}>
         <header>
-          <div>자세히 보기</div>
-          <div>도움이 필요해요!</div>
-          <button type='button' onClick={handleCloseButtonClick}>
-            close
-          </button>
+          <Button size='small' onClick={handleManageClick} dataMemberSeq={info.desertionNo} primary>
+            자세히 보기
+          </Button>
+          <div className={styles.title}>도움이 필요해요!</div>
+          <Button size='small' onClick={handleCloseButtonClick} primary>
+            닫기
+          </Button>
         </header>
         <div className={styles.imgContainer}>
           <img src={info.popfile.replace('http', 'https')} alt='유기동물 사진' />
@@ -65,7 +79,7 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
               </div>
               <div>
                 <dt>성별:</dt>
-                <dd>{info.sexCd === 'M' ? '수컷' : '암컷'}</dd>
+                <dd>{info.sexCd === 'M' ? '남아' : '여아'}</dd>
               </div>
               <div>
                 <dt>상태:</dt>
@@ -77,7 +91,7 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
               </div>
               <div>
                 <dt>종:</dt>
-                <dd>{info.kindCd}</dd>
+                <dd>{info.kindCd.replace(/\[.*?\] /g, '')}</dd>
               </div>
               <div>
                 <dt>특징:</dt>

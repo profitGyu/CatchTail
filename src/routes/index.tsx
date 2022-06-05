@@ -6,18 +6,20 @@ import FindAnimal from './findAnimal'
 import ProtectAnimal from './protectAnimal'
 import FavoriteAnimal from './favoriteAnimal'
 import Home from './home'
+import DetailAnimal from './detailAnimal'
 
 const App = () => {
   return (
     <div className={styles.app}>
       <Routes>
         <Route element={<FindLayout />}>
-          <Route path='/find' element={<FindAnimal />} />
+          <Route path='find' element={<FindAnimal />} />
         </Route>
         <Route element={<Layout />}>
           <Route path='' element={<Home />} />
-          <Route path='/protect' element={<ProtectAnimal />} />
-          <Route path='/bookmark' element={<FavoriteAnimal />} />
+          <Route path='protect' element={<ProtectAnimal />} />
+          <Route path='bookmark' element={<FavoriteAnimal />} />
+          <Route path='find/detail/:num' element={<DetailAnimal />} />
         </Route>
         <Route path='*' element={<div>잘못된 접근입니다.</div>} />
       </Routes>
