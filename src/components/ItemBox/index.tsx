@@ -1,9 +1,14 @@
 import styles from './itemBox.module.scss'
-import Modal from 'components/Modal'
-import ModalPortal from 'components/Modal/Portal'
-import { Item } from 'types'
-import { useState } from 'react'
+
+import { useEffect, useState } from 'react'
 import useDragDrop from 'hooks/useDragDrop'
+import { useInView } from 'react-intersection-observer'
+
+import { Item } from 'types'
+
+import ModalPortal from 'components/Modal/Portal'
+import Modal from 'components/Modal'
+import Skeleton from 'routes/findAnimal/skeleton'
 
 interface props {
   item: Item
@@ -11,13 +16,28 @@ interface props {
 }
 
 const ItemBox = ({ item, index }: props) => {
-  const { handleDragStart, handleDragOver, handleDragEnd, handleOnDrop } = useDragDrop()
-
+  const [ref, inView] = useInView()
+  const [isLoiding, setIsLoding] = useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false)
+
+  const { handleDragStart, handleDragOver, handleDragEnd, handleOnDrop } = useDragDrop()
 
   const handleClickModal = () => {
     setIsModalOpen((pre) => !pre)
   }
+
+  useEffect(() => {
+    if (inView) setIsLoding(true)
+  }, [ref, inView, isLoiding])
+
+  if (!isLoiding)
+    return (
+      <>
+        <Skeleton />
+        <div ref={ref} />
+      </>
+    )
+
   return (
     <li
       className={styles.itemBox}
