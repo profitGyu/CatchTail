@@ -8,6 +8,7 @@ import { useRecoilState } from 'recoil'
 import { bookMarkListState } from 'states'
 import Button from 'components/Button'
 import store from 'storejs'
+import KakaoMaps from 'components/Kakao/KakaoMap'
 
 const DetailAnimal = () => {
   const state = useLocation()
@@ -121,6 +122,9 @@ const DetailAnimal = () => {
           </table>
         </section>
       </div>
+      <section>
+        <KakaoMaps locationName={info.careNm} />
+      </section>
     </div>
   )
 }
