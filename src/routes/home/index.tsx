@@ -28,6 +28,7 @@ const Home = () => {
           <h4>유기동물 입양,실종 정보를 조회할 수 있습니다.</h4>
         </section>
       </div>
+
       <section className={styles.chartSection}>
         <BarChart />
         <div className={styles.textContainer}>

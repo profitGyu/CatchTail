@@ -1,27 +1,32 @@
 import styles from './searchResult.module.scss'
 import useQuerySearch from '../hooks'
 
-import Skeleton from '../skeleton'
-
-import ItemBox from 'components/ItemBox'
 import { useInView } from 'react-intersection-observer'
-import { useCallback, useEffect, useRef, UIEvent, useTransition, useState } from 'react'
+import { useEffect, useRef, UIEvent } from 'react'
 import { useMount } from 'react-use'
+
+import Skeleton from '../skeleton'
+import ItemBox from 'components/ItemBox'
+import store from 'storejs'
+import dayjs from 'dayjs'
 
 const SearchResult = () => {
   const content = useRef<HTMLUListElement | null>(null)
-  const [isPending, startTransition] = useTransition()
-  const [test, setTest] = useState<number>()
 
   const [ref, inView] = useInView()
 
   const { data, isLoading, fetchNextPage, isFetching, status } = useQuerySearch()
 
   useMount(() => {
-    content.current?.scrollTo({
-      top: 2000,
-      behavior: 'auto',
-    })
+    if (store.get('ResultScroll')) {
+      const yScroll = store.get('ResultScroll').scroll
+      const expireTime = store.get('ResultScroll').expire
+      if (!dayjs().isAfter(expireTime))
+        content.current?.scrollTo({
+          top: yScroll,
+          behavior: 'auto',
+        })
+    }
   })
 
   useEffect(() => {
@@ -30,24 +35,16 @@ const SearchResult = () => {
     }
   }, [fetchNextPage, inView, isLoading])
 
-  const onScroll = useCallback(
-    (e: UIEvent<HTMLElement>) => {
-      startTransition(() => {
-        setTest(e.currentTarget.scrollTop)
-      })
-      console.log(test)
-      // if (content.current?.scrollTop) {
-      //   console.log('content.current.scrollTop')
-      // }
-    },
-    [ref, test]
-  )
+  const onScroll = (e: UIEvent<HTMLElement>) => {
+    store.set('ResultScroll', { scroll: e.currentTarget.scrollTop, expire: dayjs().add(1, 'minute') })
+  }
 
   if (status === 'error') return <div>에러 입니다.</div>
   if (isLoading)
     return (
       <ul className={styles.resultContainer}>
         {new Array(45).fill(1).map((_, i) => (
+          // eslint-disable-next-line react/no-array-index-key
           <Skeleton key={`skeleton-${i}`} />
         ))}
       </ul>
@@ -72,7 +69,6 @@ const SearchResult = () => {
             // eslint-disable-next-line react/no-array-index-key
             return <Skeleton key={`skeleton-${i}`} />
           })}
-
         {!isLoading && <div style={{ width: '100%', height: '50px' }} ref={ref} />}
       </ul>
     </div>

@@ -1,17 +1,12 @@
 import styles from './modal.module.scss'
 
-import { MouseEvent, useMemo, useRef } from 'react'
+import { MouseEvent, useRef } from 'react'
 import { useClickAway } from 'react-use'
-
-import _ from 'lodash'
-import store from 'storejs'
-
-import { useRecoilState } from 'recoil'
-import { bookMarkListState } from 'states'
 
 import { Item } from 'types'
 import Button from 'components/Button'
 import { useNavigate } from 'react-router-dom'
+import useBookmark from 'hooks/useBookMark'
 
 interface Props {
   setIsOpenPopup: Function
@@ -20,7 +15,8 @@ interface Props {
 
 const Modal = ({ setIsOpenPopup, info }: Props) => {
   const outsideRef = useRef<HTMLInputElement>(null)
-  const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
+
+  const { isBookMark, onClickBookMarkRemoveHandle, onClickBookmarkAddHandle } = useBookmark(info)
 
   const navigate = useNavigate()
 
@@ -31,24 +27,6 @@ const Modal = ({ setIsOpenPopup, info }: Props) => {
   useClickAway(outsideRef, () => {
     setIsOpenPopup(false)
   })
-
-  const onClickBookmarkAddHandle = () => {
-    setBookmarkList((pre) => {
-      return pre.concat(info)
-    })
-    store.set('BookmarkList', BookmarkList.concat(info))
-  }
-
-  const onClickBookMarkRemoveHandle = () => {
-    const newFavorites = BookmarkList.filter((item) => item.desertionNo !== info.desertionNo)
-    setBookmarkList(newFavorites)
-    store.remove('BookmarkList')
-    store.set('BookmarkList', newFavorites)
-  }
-
-  const isBookMark = useMemo(() => {
-    return _.findIndex(BookmarkList, { desertionNo: info.desertionNo }) !== -1
-  }, [BookmarkList, info.desertionNo])
 
   const handleManageClick = (e: MouseEvent<HTMLButtonElement>) => {
     const { number } = e.currentTarget.dataset

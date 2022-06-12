@@ -5,18 +5,19 @@ import { cx } from 'styles'
 
 import { CITY, ANIMAL_KIND } from 'model'
 
-import { ICity } from 'types'
-
-import { useRecoilValue, useSetRecoilState } from 'recoil'
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil'
 import { DateRangeState, SearchState } from 'routes/state'
+
+import store from 'storejs'
 
 import DataInput from 'routes/_shared/DateInput'
 import Button from 'components/Button'
+import { SearchAnimalState, SearchcityState } from './state'
 
 const SearchForm = () => {
   const [isActive, SetIsActive] = useState(false)
-  const [city, setCity] = useState<ICity>({ orgCd: '', orgdownNm: '전체' })
-  const [animal, setAniaml] = useState<string>('')
+  const [city, setCity] = useRecoilState(SearchcityState)
+  const [animal, setAniaml] = useRecoilState(SearchAnimalState)
 
   const setSearchState = useSetRecoilState(SearchState)
   const DateRangevalue = useRecoilValue(DateRangeState)
@@ -29,6 +30,7 @@ const SearchForm = () => {
       bgnde: DateRangevalue[0],
       endde: DateRangevalue[1],
     })
+    store.remove('ResultScroll')
   }
 
   const handleClick = (e: MouseEvent<HTMLButtonElement>) => {

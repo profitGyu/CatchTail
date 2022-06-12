@@ -1,38 +1,40 @@
 import styles from './detailAnimal.module.scss'
 
-import { useLocation } from 'react-router-dom'
 import { Item } from 'types'
-import { useMemo } from 'react'
-import _ from 'lodash'
-import { useRecoilState } from 'recoil'
-import { bookMarkListState } from 'states'
+
+import { useLocation } from 'react-router-dom'
+
+import useBookmark from 'hooks/useBookMark'
+
 import Button from 'components/Button'
-import store from 'storejs'
+
 import KakaoMaps from 'components/Kakao/KakaoMap'
 
 const DetailAnimal = () => {
   const state = useLocation()
   const info: Item = state.state as Item
 
-  const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
+  const { isBookMark, onClickBookMarkRemoveHandle, onClickBookmarkAddHandle } = useBookmark(info)
 
-  const isBookMark = useMemo(() => {
-    return _.findIndex(BookmarkList, { desertionNo: info.desertionNo }) !== -1
-  }, [BookmarkList, info.desertionNo])
+  // const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
 
-  const onClickBookMarkRemoveHandle = () => {
-    const newFavorites = BookmarkList.filter((item) => item.desertionNo !== info.desertionNo)
-    setBookmarkList(newFavorites)
-    store.remove('BookmarkList')
-    store.set('BookmarkList', newFavorites)
-  }
+  // const isBookMark = useMemo(() => {
+  //   return _.findIndex(BookmarkList, { desertionNo: info.desertionNo }) !== -1
+  // }, [BookmarkList, info.desertionNo])
 
-  const onClickBookmarkAddHandle = () => {
-    setBookmarkList((pre) => {
-      return pre.concat(info)
-    })
-    store.set('BookmarkList', BookmarkList.concat(info))
-  }
+  // const onClickBookMarkRemoveHandle = () => {
+  //   const newFavorites = BookmarkList.filter((item) => item.desertionNo !== info.desertionNo)
+  //   setBookmarkList(newFavorites)
+  //   store.remove('BookmarkList')
+  //   store.set('BookmarkList', newFavorites)
+  // }
+
+  // const onClickBookmarkAddHandle = () => {
+  //   setBookmarkList((pre) => {
+  //     return pre.concat(info)
+  //   })
+  //   store.set('BookmarkList', BookmarkList.concat(info))
+  // }
 
   return (
     <div className={styles.detailAnimal}>
