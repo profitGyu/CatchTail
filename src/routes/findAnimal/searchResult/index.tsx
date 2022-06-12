@@ -41,7 +41,7 @@ const SearchResult = () => {
     store.set('ResultScroll', { scroll: e.currentTarget.scrollTop, expire: dayjs().add(15, 'minute') })
   }
 
-  if (status === 'error') return <div>에러 입니다.</div>
+  if (status === 'error') return <NoResult text='에러 입니다 관리자에게 요청하세요.' />
   if (isLoading)
     return (
       <ul className={styles.resultContainer}>
@@ -51,10 +51,10 @@ const SearchResult = () => {
         ))}
       </ul>
     )
-  if (data?.pages[0].totalCount === 0) return <NoResult />
+  if (data?.pages[0].totalCount === 0) return <NoResult text='검색 결과가 없습니다.' />
 
   return (
-    <div className={styles.resultContainer}>
+    <div>
       <ul className={styles.resultContainer} onScroll={onScroll} ref={content}>
         {data?.pages.map((page) =>
           page.items.item.map((item) => {

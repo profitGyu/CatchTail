@@ -29,10 +29,28 @@
 
   @include responsive.after(SD) {
     width: 100%;
+    min-width: 600px;
     height: calc(100vh);
   }
 
   div {
     display: flex;
+  }
+}
+
+.noResultContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: calc(100vh - 300px);
+  font-size: 30px;
+  line-height: 30px;
+  text-align: center;
+  background: colors.$BACKGROUNDTWO_GRADIENT;
+
+  @include responsive.after(SD) {
+    width: 100%;
+    min-width: 600px;
+    height: calc(100vh);
   }
 }

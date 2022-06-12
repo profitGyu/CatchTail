@@ -1,9 +1,13 @@
 import styles from './searchResult.module.scss'
 
-const NoResult = () => {
+interface IText {
+  text: string
+}
+
+const NoResult = ({ text }: IText) => {
   return (
-    <ul className={styles.resultContainer}>
-      <li>검색 결과가 없습니다.</li>
+    <ul className={styles.noResultContainer}>
+      <li>{text}</li>
     </ul>
   )
 }
