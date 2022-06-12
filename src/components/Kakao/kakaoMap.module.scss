@@ -37,5 +37,10 @@
   .mapMarker {
     width: 250px;
     text-align: center;
+
+    a {
+      all: unset;
+      cursor: pointer;
+    }
   }
 }

@@ -16,26 +16,6 @@ const DetailAnimal = () => {
 
   const { isBookMark, onClickBookMarkRemoveHandle, onClickBookmarkAddHandle } = useBookmark(info)
 
-  // const [BookmarkList, setBookmarkList] = useRecoilState(bookMarkListState)
-
-  // const isBookMark = useMemo(() => {
-  //   return _.findIndex(BookmarkList, { desertionNo: info.desertionNo }) !== -1
-  // }, [BookmarkList, info.desertionNo])
-
-  // const onClickBookMarkRemoveHandle = () => {
-  //   const newFavorites = BookmarkList.filter((item) => item.desertionNo !== info.desertionNo)
-  //   setBookmarkList(newFavorites)
-  //   store.remove('BookmarkList')
-  //   store.set('BookmarkList', newFavorites)
-  // }
-
-  // const onClickBookmarkAddHandle = () => {
-  //   setBookmarkList((pre) => {
-  //     return pre.concat(info)
-  //   })
-  //   store.set('BookmarkList', BookmarkList.concat(info))
-  // }
-
   return (
     <div className={styles.detailAnimal}>
       <div className={styles.imgContainer}>
