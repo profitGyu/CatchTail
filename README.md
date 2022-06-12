@@ -52,7 +52,9 @@ yarn start
 - [x] 보호동물 목록
   - [x] useInfiniteQuery쿼리, react-intersection-observer 를 이용한 무한 스크롤 적용
   - [x] 스켈레톤 로딩 적용
-  - [] 에러처리
+  - [x] 에러처리
+  - [x] 다른 페이지 이동 후 목록 페이지 이동시 스크롤 값 저장 및 적용
+  - [x] 이미지 최적화(react-intersection-observer 이용하여 이미지 창이 보이면 이미지 요청)
 
 - [x] 보호동물 모달
   - [x] Portal 이용하여 모달 구현
@@ -70,5 +72,6 @@ yarn start
 - [x] 네비게이트 state 값 적용
 - [x] 북마크 기능 적용
 - [x] 테이블 기능 적용
+- [x] 카카오 맵 기능 적용
 
 

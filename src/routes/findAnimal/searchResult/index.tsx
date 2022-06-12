@@ -1,4 +1,5 @@
 import styles from './searchResult.module.scss'
+
 import useQuerySearch from '../hooks'
 
 import { useInView } from 'react-intersection-observer'
@@ -9,6 +10,7 @@ import Skeleton from '../skeleton'
 import ItemBox from 'components/ItemBox'
 import store from 'storejs'
 import dayjs from 'dayjs'
+import NoResult from './noResult'
 
 const SearchResult = () => {
   const content = useRef<HTMLUListElement | null>(null)
@@ -36,7 +38,7 @@ const SearchResult = () => {
   }, [fetchNextPage, inView, isLoading])
 
   const onScroll = (e: UIEvent<HTMLElement>) => {
-    store.set('ResultScroll', { scroll: e.currentTarget.scrollTop, expire: dayjs().add(1, 'minute') })
+    store.set('ResultScroll', { scroll: e.currentTarget.scrollTop, expire: dayjs().add(15, 'minute') })
   }
 
   if (status === 'error') return <div>에러 입니다.</div>
@@ -49,12 +51,7 @@ const SearchResult = () => {
         ))}
       </ul>
     )
-  if (data?.pages[0].totalCount === 0)
-    return (
-      <ul className={styles.resultContainer}>
-        <li>검색 결과가 없습니다.</li>
-      </ul>
-    )
+  if (data?.pages[0].totalCount === 0) return <NoResult />
 
   return (
     <div className={styles.resultContainer}>

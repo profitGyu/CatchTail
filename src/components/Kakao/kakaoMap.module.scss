@@ -3,8 +3,9 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 90vw;
+  width: 100%;
   height: 500px;
+  padding: 20px;
 
   .mapWrapper {
     width: 100%;
@@ -20,21 +21,21 @@
     }
   }
 
-  .roadViewWrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  // .roadViewWrapper {
+  //   position: relative;
+  //   width: 100%;
+  //   height: 100%;
 
-    .roadView {
-      position: absolute;
-      top: 10px;
-      width: 100%;
-      height: 100%;
-    }
-  }
+  //   .roadView {
+  //     position: absolute;
+  //     top: 10px;
+  //     width: 100%;
+  //     height: 100%;
+  //   }
+  // }
 
   .mapMarker {
-    width: 200px;
+    width: 250px;
     text-align: center;
   }
 }

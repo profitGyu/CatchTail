@@ -28,6 +28,7 @@
   }
 
   @include responsive.after(SD) {
+    width: 100%;
     height: calc(100vh);
   }
 

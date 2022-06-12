@@ -51,12 +51,14 @@
     width: 32px;
     color: colors.$TEXT_WHITE;
     cursor: pointer;
+    transition: 0.2s;
   }
 
   .arrowIconOpen {
     width: 32px;
     color: colors.$TEXT_WHITE;
     cursor: pointer;
+    transition: 0.2s;
     transform: rotate(-180deg);
   }
 

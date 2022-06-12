@@ -1,5 +1,5 @@
-import { MouseEvent, useEffect, useState } from 'react'
-import { Map, MapMarker, MapTypeId, Roadview } from 'react-kakao-maps-sdk'
+import { useEffect, useState } from 'react'
+import { Map, MapMarker, Roadview } from 'react-kakao-maps-sdk'
 
 import styles from './kakaoMap.module.scss'
 
@@ -10,10 +10,8 @@ interface IKakaoProp {
 }
 
 const KakaoMaps = ({ locationName }: IKakaoProp) => {
-  const [mapTypeId, setMapTypeId] = useState<kakao.maps.MapTypeId>()
   const [mapLat, setMapLat] = useState<number>()
   const [mapLon, setMapLon] = useState<number>()
-  const [roadIsOpen, setRoadIsOpen] = useState(false)
   const [roadViewLat, setRoadViewLat] = useState<number | undefined>()
   const [roadViewLon, setRoadViewLon] = useState<number | undefined>()
 
@@ -39,24 +37,8 @@ const KakaoMaps = ({ locationName }: IKakaoProp) => {
         <div className={styles.mapWrapper}>
           <Map className={styles.map} center={{ lat: mapLat, lng: mapLon }} onClick={onClickMapRoadViewCoords}>
             <MapMarker position={{ lat: mapLat, lng: mapLon }}>
-              <div style={{ padding: '5px', color: '#000' }}>
-                Hello World! <br />
-                <a
-                  href='https://map.kakao.com/link/map/Hello World!,33.450701,126.570667'
-                  style={{ color: 'blue' }}
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  큰지도보기
-                </a>{' '}
-                <a
-                  href='https://map.kakao.com/link/to/Hello World!,33.450701,126.570667'
-                  style={{ color: 'blue' }}
-                  target='_blank'
-                  rel='noreferrer'
-                >
-                  길찾기
-                </a>
+              <div style={{ padding: '5px', color: '#000', textAlign: 'center' }} className={styles.mapMarker}>
+                {locationName}
               </div>
             </MapMarker>
           </Map>
