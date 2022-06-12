@@ -47,7 +47,7 @@ const SearchResult = () => {
       <ul className={styles.resultContainer}>
         {new Array(45).fill(1).map((_, i) => (
           // eslint-disable-next-line react/no-array-index-key
-          <Skeleton key={`skeleton-${i}`} />
+          <Skeleton key={`skeleton-one-${i}`} />
         ))}
       </ul>
     )
@@ -64,7 +64,7 @@ const SearchResult = () => {
         {isFetching &&
           new Array(12).fill(1).map((_, i) => {
             // eslint-disable-next-line react/no-array-index-key
-            return <Skeleton key={`skeleton-${i}`} />
+            return <Skeleton key={`skeleton-two-${i}`} />
           })}
         {!isLoading && <div style={{ width: '100%', height: '50px' }} ref={ref} />}
       </ul>
